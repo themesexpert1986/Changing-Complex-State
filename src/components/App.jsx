@@ -17,18 +17,20 @@ function App() {
     // console.log(value);
     
     setFullName(prev => {
-      if(name === "fName"){
-        return {
-          fName:value,
-          lName:prev.lName
-        }
-      }
-      else if (name === "lName"){
-        return {
-          fName:prev.fName,
-          lName:value
-        }
-      }
+      return {...prev , [name]:value};
+      // if(name === "fName"){
+      //   return {
+      //     fName:value,
+      //     lName:prev.lName
+      //   }
+      // }
+      // else if (name === "lName"){
+      //   return {
+      //     fName:prev.fName,
+      //     lName:value
+      //   }
+      // }
+
     });
     
     event.preventDefault();
