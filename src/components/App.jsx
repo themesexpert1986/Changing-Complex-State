@@ -12,16 +12,20 @@ function App() {
     const newValue = event.target.value;
     const inputName = event.target.name;
     
-    if (inputName === "fName") {
-      setFullName({
-        fName: newValue
-      });
-    }
-    else if (inputName === "lName") {
-      setFullName({
-        lName: newValue
-      });
-    }
+    setFullName(prev => {
+      if(inputName === "fName"){
+        return {
+          fName:newValue,
+          lName:prev.lName
+        }
+      }
+      else if (inputName === "lName"){
+        return {
+          fName:prev.fName,
+          lName:newValue
+        }
+      }
+    });
     
     //event.preventDefault();
     
